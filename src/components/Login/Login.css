@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+.home_page {
+    height: 100vh;
+    width: 100vw;
+    background-color: #1F2833;
+}
+
+.login_logo {
+    font-family: 'Orbitron', cursive;
+    font-size: 100px;
+}
+
+.home_elements {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #66FCF1;
+    opacity: .01;
+    font-family: 'Orbitron', cursive;
+}
+
+.login_button {
+    margin: 75px;
+    background-color: #66FCF1;
+    color: #1F2833;
+    height: 60px;
+    width: 180px;
+    border-radius: 5px;
+    border: 2px solid #66FCF1;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Orbitron', cursive;
+}
+
+.register_link {
+    margin: 75px;
+    background-color: #1F2833;
+    color: #66FCF1;
+    height: 60px;
+    width: 180px;
+    border-radius: 5px;
+    border: 2px solid #66FCF1;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Orbitron', cursive;
+}
+
+.login_button:hover {
+    transform: scale(1.3)
+}
+
+.register_link:hover {
+    transform: scale(1.3)
+}
+
+.login_button_click {
+    margin: 75px;
+    background-color: white;
+    color: #1F2833;
+    height: 60px;
+    width: 180px;
+    border-radius: 5px;
+    border: 2px solid #66FCF1;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Orbitron', cursive;
+}
+
+.register_link_click {
+    color: #1F2833;
+    background-color: #66FCF1;
+    margin: 75px;
+    color: white;
+    height: 60px;
+    width: 180px;
+    border-radius: 5px;
+    border: 2px solid white;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Orbitron', cursive;
+}
+
+.home_elements_transition {
+    opacity: 1;
+    transition: opacity 1s ease-in;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #66FCF1;
+}

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+.profile_body {
+    font-family: 'Orbitron', cursive;
+    background-color: #1F2833;
+    height: 90vh;
+    width: 100%;
+    color: #66FCF1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
+
+.profile_body_div {
+    height: 70vh;
+    width: 40vw;
+    background-color: #66FCF1;
+    color: #1F2833;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+}
+
+.edit_profile_button {
+    margin: 20px;
+    font-size: 20px;
+    background-color: #1F2833;
+    color: #66FCF1;
+    height: 60px;
+    width: 190px;
+    border-radius: 20px;
+    border: 2px solid #66FCF1;
+    font-weight: bold;
+    font-family: 'Orbitron', cursive;
+}
+
+.edit_profile_button:hover {
+    transform: scale(1.3);
+    transition: transform 250ms ease-in-out; 
+}
