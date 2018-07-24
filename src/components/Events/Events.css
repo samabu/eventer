@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
 
-.event_creator_body {
+.events_body {
     background-color: #1F2833;
     height: 90vh;
     width: 100%;
@@ -10,47 +10,61 @@
     align-items: center;
     font-family: 'Orbitron', cursive;
     color: #66FCF1;
+    overflow: auto;
 }
 
-.event_creator_div {
-    font-size: 28px;
+.single_event {
+    height: 30vh;
+    width: 30vw;
     background-color: #66FCF1;
-    color: #1F2833;
-    height: 40vh;
-    width: 35vw;
+    margin: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    border-radius: 10px;
-    margin: 20px;
     font-family: 'Orbitron', cursive;
+    border-radius: 40px;
+    color: #1F2833;
+    font-size: 24px;
 }
 
-.event_name_input {
-    text-align: center;
-    height: 5vh;
-    width: 17vw;
+.go_to_event_button {
     background-color: #1F2833;
     color: #66FCF1;
-    font-family: 'Orbitron', cursive;
-    text-align: center;
-    border: 5px solid #1F2833;
-}
-
-.event_creator_button {
-    background-color: #1F2833;
-    color: #66FCF1;
-    height: 40px;
-    width: 160px;
-    border-radius: 5px;
+    height: 50px;
+    width: 190px;
+    border-radius: 20px;
     border: 2px solid #66FCF1;
+    font-weight: bold;
     font-family: 'Orbitron', cursive;
+    margin: 10px;
     transition: transform 250ms ease-in-out;
-    margin: 35px;
 }
 
-.event_creator_button:hover {
-    transform: scale(1.1);
+.go_to_event_button:hover {
+    transform: scale(1.2);
     transition: transform 250ms ease-in-out;
+}
+
+.delete_event_button {
+    background-color: #1F2833;
+    color: #66FCF1;
+    height: 50px;
+    width: 190px;
+    border-radius: 20px;
+    border: 2px solid #66FCF1;
+    font-weight: bold;
+    font-family: 'Orbitron', cursive;
+    margin: 10px;
+    transition: transform 250ms ease-in-out;
+}
+
+.delete_event_button:hover {
+    transform: scale(1.2);
+    transition: transform 250ms ease-in-out;
+}
+
+.events_list {
+    display: flex;
+    flex-direction: column-reverse;
 }

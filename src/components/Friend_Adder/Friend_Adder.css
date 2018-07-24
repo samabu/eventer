@@ -1,25 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
 
-.event_creator_body {
+.friend_adder_body {
     background-color: #1F2833;
+    color: #66FCF1;
     height: 90vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    overflow: auto;
     font-family: 'Orbitron', cursive;
-    color: #66FCF1;
 }
 
-.event_creator_div {
-    font-size: 28px;
+.input_username {
+    font-size: 24px;
     background-color: #66FCF1;
     color: #1F2833;
-    height: 40vh;
-    width: 35vw;
+    height: 10vh;
+    width: 55vw;
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;
@@ -27,10 +27,9 @@
     font-family: 'Orbitron', cursive;
 }
 
-.event_name_input {
+.username_input {
     text-align: center;
-    height: 5vh;
-    width: 17vw;
+    width: 15vw;
     background-color: #1F2833;
     color: #66FCF1;
     font-family: 'Orbitron', cursive;
@@ -38,7 +37,25 @@
     border: 5px solid #1F2833;
 }
 
-.event_creator_button {
+.map_friends_to_show {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.friends_to_add {
+    background-color: #66FCF1;
+    color: #1F2833;
+    height: 35vh;
+    width: 25vw;
+    margin: 20px;
+    border-radius: 30px;
+    font-size: 24px;
+    padding: 20px;
+}
+
+.friend_adder_button {
     background-color: #1F2833;
     color: #66FCF1;
     height: 40px;
@@ -47,10 +64,17 @@
     border: 2px solid #66FCF1;
     font-family: 'Orbitron', cursive;
     transition: transform 250ms ease-in-out;
-    margin: 35px;
+    margin: 5px;
 }
 
-.event_creator_button:hover {
+.friend_adder_button:hover {
+    background-color: #1F2833;
+    color: #66FCF1;
+    height: 45px;
+    width: 180px;
+    border-radius: 5px;
+    border: 2px solid #66FCF1;
+    font-family: 'Orbitron', cursive;
     transform: scale(1.1);
     transition: transform 250ms ease-in-out;
 }

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+.friend_inviter_header {
+    font-size: 24px;
+    height: 25vh;
+    width: 100%;
+    background-color: #1F2833;
+    color: #66FCF1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.friends_to_invite_list {
+    overflow: auto;
+    height: 65vh;
+    width: 100%;
+    background-color: #1F2833;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.friends_to_invite {
+    height: 40vh;
+    width: 28%;
+    background-color: #66FCF1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 35px;
+    border-radius: 40px;
+    font-size: 24px;
+}
+
+.invite_friend_button {
+    background-color: #1F2833;
+    color: #66FCF1;
+    height: 50px;
+    width: 160px;
+    border-radius: 5px;
+    border: 2px solid #66FCF1;
+    font-family: 'Orbitron', cursive;
+    transition: transform 250ms ease-in-out;
+}
+
+.invite_friend_button:hover {
+    transform: scale(1.1);
+    transition: transform 250ms ease-in-out;
+}
+
+.show_all_friends_button {
+    background-color: #66FCF1;
+    color: #1F2833;
+    height: 50px;
+    width: 160px;
+    border-radius: 5px;
+    border: 2px solid #66FCF1;
+    font-weight: bold;
+    font-family: 'Orbitron', cursive;
+    transition: transform 250ms ease-in-out;
+}
+
+.show_all_friends_button:hover {
+    transform: scale(1.1);
+    transition: transform 250ms ease-in-out;
+}
+
+.friend_username_input_inviter {
+    background-color: #66FCF1;
+    text-align: center;
+    border: 5px solid #66FCF1;
+    color: #1F2833;
+}

@@ -3,6 +3,7 @@ import { getUserData, updateUserData } from '../../ducks/reducer';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './Profile_Editor.css';
 
 class Profile_Editor extends Component {
     constructor(props) {
@@ -44,18 +45,19 @@ class Profile_Editor extends Component {
     render() {
         let { user } = this.props;
         return (
-            <div>
-            <h1>WELCOME TO THE PROFILE EDITOR</h1><br/>
-            <img src={ user.profile_pic } alt="prof"/><br/>
-            <input onChange={ (e) => this.handleChange( 'profile_pic', e.target.value ) } type="text" placeholder="New Profile Picture URL" value={ this.state.profile_pic } /><br/>
-            { "Current Username: " + user.username }<br/>
-            <input onChange={ (e) => this.handleChange( 'username', e.target.value ) } type="text" placeholder="New Username" value={ this.state.username } /><br/>
-            { user.email ? "Current Email: " + user.email : "No email yet" }<br/>
-            <input onChange={ (e) => this.handleChange( 'email', e.target.value ) } type="text" placeholder="New Email" value={ this.state.email } /><br/>
-            { user.zipcode ? "Current Zipcode: " + user.zipcode : "No zipcode yet" }<br/>
-            <input onChange={ (e) => this.handleChange( 'zipcode', e.target.value ) } type="text" placeholder="New Zipcode" value={ this.state.zipcode } /><br/>
-            <Link to="/profile"><button onClick={ () => this.updateProfile(this.state) }>SAVE CHANGES</button></Link>
-            <Link to="/"><button onClick={ () => this.deleteProfile() }>DELETE ACCOUNT</button></Link>
+            <div className="profile_editor_body">
+                <div className="profile_editor">
+                    <img src={ user.profile_pic } alt="prof"/><br/>
+                    <input className="editor_input" onChange={ (e) => this.handleChange( 'profile_pic', e.target.value ) } type="text" placeholder="New Profile Picture URL" value={ this.state.profile_pic } /><br/>
+                    { "Current Username: " + user.username }<br/>
+                    <input className="editor_input" onChange={ (e) => this.handleChange( 'username', e.target.value ) } type="text" placeholder="New Username" value={ this.state.username } /><br/>
+                    { user.email ? "Current Email: " + user.email : "No email yet" }<br/>
+                    <input className="editor_input" onChange={ (e) => this.handleChange( 'email', e.target.value ) } type="text" placeholder="New Email" value={ this.state.email } /><br/>
+                    { user.zipcode ? "Current Zipcode: " + user.zipcode : "No zipcode yet" }<br/>
+                    <input className="editor_input" onChange={ (e) => this.handleChange( 'zipcode', e.target.value ) } type="text" placeholder="New Zipcode" value={ this.state.zipcode } /><br/>
+                    <Link to="/profile"><button className="save_changes_button" onClick={ () => this.updateProfile(this.state) }>SAVE CHANGES</button></Link>
+                    <Link to="/"><button className="delete_account_button" onClick={ () => this.deleteProfile() }>DELETE ACCOUNT</button></Link>
+                </div>
             </div>
         );
     }

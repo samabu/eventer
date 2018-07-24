@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import './Login.css';
 // import axios from 'axios';
+import Confetti from 'react-dom-confetti';
+
+const config = {
+    angle: 90,
+    spread: 320,
+    startVelocity: 50,
+    elementCount: 175,
+    decay: .85
+};
 
 class Login extends Component {
     constructor() {
@@ -9,7 +18,8 @@ class Login extends Component {
         this.state = {
             mounted: false,
             button: false,
-            link: false
+            link: false,
+            confetti: false
         }
     }
 
@@ -35,6 +45,13 @@ class Login extends Component {
         this.login();
     }
 
+    throw_confetti = () => {
+        this.setState({ confetti: true });
+        setTimeout(() => {
+            this.setState({ confetti: false })
+        }, 1000);
+    }
+
     login() {
         const redirectUri = encodeURIComponent(`http://localhost:3005/auth/callback`);
         window.location = `https://${process.env.REACT_APP_DOMAIN}/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&scope=openid%20profile%20email&redirect_uri=${redirectUri}&response_type=code`;
@@ -42,8 +59,9 @@ class Login extends Component {
 
     render() {
       return (
-        <div className="home_page">
+        <div onClick={ () => this.throw_confetti() } className="home_page">
             <div className={this.state.mounted ? "home_elements_transition" : "home_elements"}>
+            <Confetti active={ this.state.confetti } config={ config }/>
                 <h1 className="login_logo">EVENTER</h1>
                 <button className={this.state.button ? "login_button_click" : "login_button"} onClick={ () => this.loginButtonAnimation() }>LOGIN</button>
                 <button className={this.state.link ? "register_link_click" : "register_link"} onClick={ () => this.registerLinkAnimation() }>REGISTER</button>

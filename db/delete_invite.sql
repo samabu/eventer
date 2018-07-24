@@ -1,0 +1,1 @@
+delete from invites where event_id = $1 and invitee_id = $2;

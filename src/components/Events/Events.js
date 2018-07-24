@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getUserData } from '../../ducks/reducer';
+import './Events.css';
 
 class Events extends Component {
     constructor() {
@@ -13,6 +16,9 @@ class Events extends Component {
 
     componentDidMount() {
         this.getEvents();
+        axios.get('/api/user-data').then(res => {
+            this.props.getUserData(res.data)
+        })
     }
 
     getEvents = () => {
@@ -21,16 +27,30 @@ class Events extends Component {
         })
     }
 
+    deleteEvent = (event, i) => {
+        if (this.props.user.user.username === event.username) {
+            axios.delete(`/api/deleteevent/${event.event_id}`)
+            .then(this.getEvents())
+        }
+        else {
+            axios.delete(`/api/deleteinvite/${event.event_id}`)
+            .then(this.getEvents())
+        }
+    }
+
     mapEvents = () => {
         let key = 0;
-        let eventsToShow = this.state.eventsToDisplay.map( (e) => {
+        let eventsToShow = this.state.eventsToDisplay.map( (e, i) => {
             return (
-                <div key={key++}>
-                    {"Event Name: "}
-                    { e.event_name }<br/>
-                    {"Event Host: "}
-                    { e.username }<br/>
-                    <Link to="/eventviewer"><button>GO TO EVENT</button></Link>
+                <div className="single_event" key={key++}>
+                    <div>{"Event Name: "}
+                    { e.event_name }</div>
+                    <div>{"Event Host: "}
+                    { e.username }</div>
+                    <div>
+                            <Link to="/eventviewer"><button className="go_to_event_button">GO TO EVENT</button></Link>
+                            <button onClick={ () => this.deleteEvent(e, i) } className="delete_event_button">DELETE EVENT</button>
+                    </div>
                 </div>
             )
         })
@@ -40,12 +60,20 @@ class Events extends Component {
     render() {
         this.getEvents();
         return (
-            <div>
-                <h1>EVENTS: </h1><br/>
-                { this.mapEvents() }
+            <div className="events_body">
+                <h1>YOUR EVENTS:</h1>
+                <div className="events_list">
+                    { this.mapEvents() }
+                </div>
             </div>
         )
     }
 }
 
-export default Events;
+function mapStateToProps(state) {
+    return {
+        user: state
+    }
+}
+
+export default connect( mapStateToProps, { getUserData })(Events);

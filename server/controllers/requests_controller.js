@@ -10,9 +10,10 @@ module.exports = {
     add: ( req, res ) => {
         req.app.get('db').accept_friend([ req.session.user.userid, req.body.userid, false ])
         .then( req.app.get('db').update_request([ req.body.userid, req.session.user.userid ]))
+        .then( req.app.get('db').get_friend_requests([req.session.user.userid])
         .then( response => {
-            res.send( response )
-        })
+            return res.send(response)
+        }))
     },
 
     delete: ( req, res ) => {

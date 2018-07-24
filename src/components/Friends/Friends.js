@@ -6,20 +6,42 @@ import { Link } from 'react-router-dom';
 import './Friends.css';
 
 class Friends extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+            friends: []
+        }
+    }
 
     componentDidMount() {
+        this.getFriends()
+    }
+
+    getFriends = () => {
         axios.get('/api/friends').then(res => {            
             this.props.getFriends(res.data)
+            this.setState({ friends: res.data })
         })
+    }
+
+    deleteFriend = (friend, i) => {
+        let { userid } = friend
+        axios.delete(`/api/delete/${userid}`)
+        let newFriends = this.state.friends
+        newFriends.splice(i, 1)
+        this.setState({ friends: newFriends })
+        this.getFriends()
     }
 
     mapFriends() {
         let key = 0;
-        let friendsToDisplay = this.props.user.friends.map( (e) => {
+        let friendsToDisplay = this.state.friends.map( (e, i) => {
             return(
                 <div className="actual_friends" key={ key++ }>
                     { e.username }<br/>
                     <img src={ e.profile_pic } alt="friend"/><br/>
+                    <button onClick={ () => this.deleteFriend(e, i) } className="remove_friend_button">REMOVE FRIEND</button>
                 </div>
             )})
         return friendsToDisplay;

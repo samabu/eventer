@@ -32,5 +32,16 @@ module.exports = {
             return res.send(response)
         })
         .catch(console.log)
+    },
+
+    delete: ( req, res ) => {
+        req.app.get('db').delete_invites([ req.params.event_id ])
+        .then(req.app.get('db').delete_event([ req.params.event_id ]))
+        .catch(console.log)
+    },
+
+    delete_invite: ( req, res ) => {
+        req.app.get('db').delete_invite([ req.params.event_id, req.session.user.userid ])
+        .catch(console.log)
     }
 }

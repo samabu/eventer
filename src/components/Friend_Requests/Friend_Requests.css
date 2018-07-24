@@ -1,0 +1,58 @@
+.friend_request_body {
+    height: 60vh;
+    width: 100vw;
+    background-color: #1F2833;
+    font-family: 'Orbitron', cursive;
+    overflow: auto;
+    color:#66FCF1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-wrap: wrap;
+}
+
+.no_friend_request_body {
+    height: 90vh;
+    width: 100vw;
+    background-color: #1F2833;
+    font-family: 'Orbitron', cursive;
+    overflow: auto;
+    color:#66FCF1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.haha {
+    margin: 45px;
+    height: 400px;
+    width: 500px;
+}
+
+.request {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #66FCF1;
+    color: #1F2833;
+    border-radius: 40px;
+}
+
+.request_buttons {
+    height: 50px;
+    width: 100px;
+    background-color: #1F2833;
+    color: #66FCF1;
+    border-radius: 5px;
+    border: 2px solid #66FCF1;
+    font-weight: bold;
+    font-family: 'Orbitron', cursive;
+}   

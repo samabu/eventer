@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './Friend_Requests.css';
 
 class Friend_Requests extends Component {
     constructor() {
@@ -34,11 +35,13 @@ class Friend_Requests extends Component {
         if (this.state.friend_requests.length > 0) {
             var requestsToDisplay = this.state.friend_requests.map( (e, i) => {
                 return (
-                    <div key={key++}>
-                        { e.username }<br/>
-                        <img src={ e.profile_pic } alt=""/><br/>
-                        <button onClick={ () => this.acceptFriend(e, i) }>ACCEPT</button>
-                        <button onClick={ () => this.rejectFriend(e, i) }>REJECT</button>
+                    <div className="friend_request_body" key={key++}>
+                        <div className="request">
+                            { e.username }<br/>
+                            <img src={ e.profile_pic } alt=""/><br/>
+                            <button className="request_buttons" onClick={ () => this.acceptFriend(e, i) }>ACCEPT</button>
+                            <button className="request_buttons" onClick={ () => this.rejectFriend(e, i) }>REJECT</button>
+                        </div>
                     </div>
                 )
             })
@@ -48,9 +51,9 @@ class Friend_Requests extends Component {
 
         else if (this.state.friend_requests.length === 0) {
             return(
-                <div>
+                <div className="no_friend_request_body">
                     Sorry, no one has requested to be your friend.<br/>
-                    <img src="https://media.giphy.com/media/3orieLHXgpfkKO9Iju/giphy.gif" alt="you suck"/><br/>
+                    <img className="haha" src="https://media.giphy.com/media/3orieLHXgpfkKO9Iju/giphy.gif" alt="you suck"/><br/>
                 </div>
             )
         }

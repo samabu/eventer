@@ -8,8 +8,27 @@ const pc = require('./controllers/profile_controller');
 const fc = require('./controllers/friends_controller');
 const rc = require('./controllers/requests_controller');
 const ec = require('./controllers/events_controller');
+const bc = require('./controllers/business_controller')
+const socket = require('socket.io');
 
 const app = express();
+const io = socket(app.listen(3005, () => console.log('Server listening on port 3005')));
+
+io.on('connection', socket => {
+  console.log('User Connected');
+  socket.emit("welcome", {userID: socket.id})
+
+  socket.on('message sent', data => {
+    console.log(data)
+    io.emit('message dispatched', data);
+  })
+
+  socket.on('disconnect', () => {
+    console.log('User Disconnected');
+  })
+
+});
+
 app.use(bodyPaser.json());
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -78,6 +97,7 @@ app.get('/auth/callback', async (req, res) => {
   app.get('/api/friends', fc.read)
   app.get('/api/search/:input', fc.search)
   app.post('/api/addfriend', fc.add)
+  app.delete('/api/delete/:userid', fc.delete)
 
   // Friend Requests
   app.get('/api/friendrequests', rc.read)
@@ -89,8 +109,8 @@ app.get('/auth/callback', async (req, res) => {
   app.post('/api/create', ec.create)
   app.post('/api/invitefriend', ec.invite_friend)
   app.get('/api/events', ec.read)
+  app.delete('/api/deleteevent/:event_id', ec.delete)
+  app.delete('/api/deleteinvite/:event_id', ec.delete_invite)
 
-const SERVER_PORT = process.env.SERVER_PORT;
-app.listen(SERVER_PORT, () => {
-  console.log('I will be working on this project until the year ' + SERVER_PORT);
-});
+  // Businesses 
+  app.get('/api/businesses', bc.read)

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { getUserData } from '../../ducks/reducer';
+import './Friend_Adder.css';
 
 class Friend_Adder extends Component {
     constructor() {
@@ -40,16 +41,16 @@ class Friend_Adder extends Component {
     mapFriendsToShow() {
         if (this.state.friendsToShow.length === 0) {
             return (
-                <div>Sorry, no one has a username including: {this.state.friend_username}</div>
+                <h1 className="no_matches">Sorry, no one has a username that matches your search</h1>
             )
         }
         let key = 0;
         let potentialFriends = this.state.friendsToShow.map( (e, i) => {
             return (
-                <div key={key++}>
+                <div className="friends_to_add" key={key++}>
                     {e.username}<br/>
                     <img src={e.profile_pic} alt="friend"/><br/>
-                    <button onClick={ () => this.addFriend(e, i) }>ADD FRIEND</button>
+                    <button className="friend_adder_button" onClick={ () => this.addFriend(e, i) }>ADD FRIEND</button>
                 </div>
             )
         })
@@ -58,9 +59,13 @@ class Friend_Adder extends Component {
 
     render() {
         return (
-            <div>
-                {"Search for your friend's username: "}<input onChange={ (e) => this.handleChange('friend_username', e.target.value) } type="text" placeholder="username"/><br/>
-                { this.mapFriendsToShow() }
+            <div className="friend_adder_body">
+                <div className="input_username">
+                    {"Search for your friend's username:   "}<input className="username_input" onChange={ (e) => this.handleChange('friend_username', e.target.value) } type="text" placeholder="username"/><br/>
+                </div>
+                <div className="map_friends_to_show">
+                    { this.mapFriendsToShow() }
+                </div>
             </div>
         )
     }

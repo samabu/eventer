@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+.Event_Viewer_body {
+    height: 90vh;
+    width: 100%;
+    background-color: #1F2833;
+    color: #66FCF1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: 'Orbitron', cursive;
+    overflow: auto;
+}
+
+.left_side {
+    display: flex;
+    flex-direction: column;
+}
+
+.business_search_input {
+    width: 230px;
+    background-color: #1F2833;
+    color: #66FCF1;
+    border: 5px solid #1F2833;
+    text-align: center;
+    margin: 10px;
+    font-family: 'Orbitron', cursive;
+}
+
+.filters {
+    background-color: #66FCF1;
+    color: #1F2833;
+    height: 11vh;
+    width: 55vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin: 20px;
+    border-radius: 25px;
+    font-family: 'Orbitron', cursive;
+}
+
+.search_businesses_button {
+    background-color: #1F2833;
+    color: #66FCF1;
+    height: 40px;
+    width: 150px;
+    border-radius: 20px;
+    border: 2px solid #66FCF1;
+    font-weight: bold;
+    font-family: 'Orbitron', cursive;
+    transition: transform 250ms ease-in-out;
+}
+
+.search_businesses_button:hover {
+    transform: scale(1.1);
+    transition: transform 250ms ease-in-out;
+}
+
+.businesses {
+    width: 57vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.one_business_view {
+    background-color: #66FCF1;
+    color: #1F2833;
+    height: 68vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 24px;
+    border-radius: 50px;
+}
+
+.quit_button {
+    text-decoration: none;
+    color: #1F2833;
+    align-self: flex-end;
+    margin-right: 30px;
+    margin-top: 15px;
+    opacity: 0.3;
+    transition: transform 250ms ease-in-out;
+}
+
+.quit_button:hover {
+    transform: scale(1.1);
+    transition: transform 250ms ease-in-out;
+    opacity: 1;
+}
+
+.yelp {
+    text-decoration: none;
+    color: #1F2833;
+    transition: transform 250ms ease-in-out;
+}
+
+.yelp:hover {
+    transform: scale(1.1);
+    transition: transform 250ms ease-in-out;
+}
+
+.individual_businesses {
+    background-color: #66FCF1;
+    color: #1F2833;
+    height: 35vh;
+    width: 20vw;
+    margin: 25px;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 25px;
+    transition: transform 250ms ease-in-out;
+}
+
+.individual_businesses:hover {
+    transform: scale(1.1);
+    transition: transform 250ms ease-in-out;
+}
+
+.chat_box {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-end;
+    position: fixed;
+    left: 58.75vw;
+}
+
+.messages {
+	height: 75vh;
+	width: 40vw;
+	display: flex;
+	flex-direction: column;
+    overflow-y: scroll;
+    background-color: #66FCF1;
+    margin-top: 2.5vh;
+    margin-right: 1.5vw;
+    word-wrap: break-word;
+    font-family: 'Orbitron', cursive;
+}
+
+.individual_message {
+    text-align: left;
+    width: 15vw;
+    height: auto;
+	padding: 8px;
+	margin-bottom: 4px;
+    border-radius: 15px;
+    word-wrap: break-word;
+}
+
+.input {
+    height: 10vh;
+    width: 40vw;
+	background-color: #e5e6ea;
+	display: flex;
+	justify-content: space-around;
+    align-items: center;
+    font-family: 'Orbitron', cursive;
+    margin-bottom: 2.5vh;
+    margin-right: 1.5vw;
+}
+
+.message_input {
+	height: 50%;
+	width: 70%;
+	border-radius: 15px;
+	border: 1px solid #c9c9c9;
+	outline: none;
+	font-size: medium;
+    padding: 5px;
+    font-family: 'Orbitron', cursive;
+}
+
+.send_message {
+	font-size: 20px;
+	color: #2494ff;
+	border: none;
+    background-color: #e5e6ea;
+    font-family: 'Orbitron', cursive;
+}
+
+.food_or_entertainment {
+    text-align: center;
+    width: 120px;
+    background-color: #1F2833;
+    color: #66FCF1;
+    margin: 10px;
+    font-family: 'Orbitron', cursive;
+}
+
+.price_select {
+    text-align: center;
+    width: 75px;
+    background-color: #1F2833;
+    color: #66FCF1;
+    margin: 10px;
+    font-family: 'Orbitron', cursive;
+}
+
+.messages::-webkit-scrollbar {
+    background-color: whitesmoke;
+}
+
+.messages::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: darkgrey; 
+    border-radius: 10px;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+    background: grey; 
+}

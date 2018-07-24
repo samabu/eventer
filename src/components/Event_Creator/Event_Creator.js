@@ -26,12 +26,12 @@ class Event_Creator extends Component {
 
     render() {
         return (
-            <div>
+            <div className="event_creator_body">
                 <h1>EVENT CREATOR PAGE</h1>
-                <div>
-                    Event Name:<br/>
-                    <input onChange={ (e) => this.handleChange('input', e.target.value) } type="text" placeholder="Event Name"/><br/>
-                    <Link to="/eventinviter"><button onClick={ () => this.createEventer() }>CREATE EVENT</button></Link><br/>
+                <div className="event_creator_div">
+                    <h2>Event Name:</h2>
+                    <input className="event_name_input" onChange={ (e) => this.handleChange('input', e.target.value) } type="text" placeholder="ex. Super Awesome Mega Party"/>
+                    <Link to="/eventinviter"><button className="event_creator_button" onClick={ () => this.createEventer() }>CREATE EVENT</button></Link>
                 </div>
             </div>
         )

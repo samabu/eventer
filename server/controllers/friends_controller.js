@@ -21,6 +21,13 @@ module.exports = {
 
     add: ( req, res ) => {
         req.app.get('db').add_friend([ req.session.user.userid, req.body.userid ])
+        .catch(console.log)
+    },
+
+    delete: ( req, res ) => {
+        let { userid } = req.params
+        req.app.get('db').delete_friend([ req.session.user.userid, userid ])
+        .catch(console.log)
     }
 
 }
