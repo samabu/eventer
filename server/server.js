@@ -44,7 +44,8 @@ app.use(session({
 massive(process.env.CONNECTION_STRING).then(db => {
     app.set('db', db);
     console.log('database ready')
-});
+})
+.catch((e) => console.log(e));
 
 app.get('/auth/callback', async (req, res) => {
     let payload = {
