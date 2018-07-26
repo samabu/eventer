@@ -40,7 +40,7 @@ app.use(session({
 }));
 
 // app.use(authMid.bypassAuthInDevelopment)
-
+console.log(process.env.CONNECTION_STRING)
 massive(process.env.CONNECTION_STRING).then(db => {
     app.set('db', db);
     console.log('database ready')
