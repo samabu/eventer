@@ -47,21 +47,22 @@ massive(process.env.CONNECTION_STRING).then(db => {
 .catch((e) => console.log(e));
 
 app.get('/auth/callback', async (req, res) => {
+  let { REACT_APP_CLIENT_ID, REACT_APP_DOMAIN, CLIENT_SECRET, PROTOCOL } = process.env
     let payload = {
-      client_id: process.env.REACT_APP_CLIENT_ID,
-      client_secret: process.env.CLIENT_SECRET,
+      client_id: REACT_APP_CLIENT_ID,
+      client_secret: CLIENT_SECRET,
       code: req.query.code,
       grant_type: 'authorization_code',
-      redirect_uri: `${process.env.PROTOCOL}://${req.headers.host}/auth/callback`
+      redirect_uri: `${PROTOCOL}://${req.headers.host}/auth/callback`
     };
   
     let responseWithToken = await axios.post(
-      `https://${process.env.REACT_APP_DOMAIN}/oauth/token`,
+      `https://${REACT_APP_DOMAIN}/oauth/token`,
       payload
     );
 
     let userData = await axios.get(
-      `https://${process.env.REACT_APP_DOMAIN}/userinfo?access_token=${responseWithToken.data.access_token}`
+      `https://${REACT_APP_DOMAIN}/userinfo?access_token=${responseWithToken.data.access_token}`
     );
     const db = req.app.get('db');
     let { sub, name, picture } = userData.data;
