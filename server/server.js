@@ -12,6 +12,9 @@ const bc = require('./controllers/business_controller')
 const socket = require('socket.io');
 
 const app = express();
+
+app.use( express.static( `${__dirname}/../build` ) );
+
 const io = socket(app.listen(3005, () => console.log('Server listening on port 3005')));
 
 io.on('connection', socket => {
