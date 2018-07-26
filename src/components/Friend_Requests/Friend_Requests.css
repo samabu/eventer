@@ -1,5 +1,5 @@
 .friend_request_body {
-    height: 60vh;
+    height: 90vh;
     width: 100vw;
     background-color: #1F2833;
     font-family: 'Orbitron', cursive;
@@ -55,4 +55,10 @@
     border: 2px solid #66FCF1;
     font-weight: bold;
     font-family: 'Orbitron', cursive;
+    transition: transform 250ms ease-in-out;
 }   
+
+.request_buttons:hover {
+    transform: scale(1.1);
+    transition: transform 250ms ease-in-out;
+}

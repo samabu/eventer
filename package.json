@@ -18,7 +18,11 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "semantic-ui-css": "^2.3.3",
+    "semantic-ui-react": "^0.82.1",
+    "socket.io": "^2.1.1",
+    "yelp-fusion": "^2.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,5 +31,8 @@
     "eject": "react-scripts eject"
   },
   "main": "server/server.js",
-  "proxy": "http://localhost:3005"
+  "proxy": "http://localhost:3005",
+  "devDependencies": {
+    "semantic-ui": "^2.3.3"
+  }
 }

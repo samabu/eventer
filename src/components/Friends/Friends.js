@@ -39,8 +39,8 @@ class Friends extends Component {
         let friendsToDisplay = this.state.friends.map( (e, i) => {
             return(
                 <div className="actual_friends" key={ key++ }>
-                    { e.username }<br/>
-                    <img src={ e.profile_pic } alt="friend"/><br/>
+                    { e.username }
+                    <img src={ e.profile_pic } alt="friend"/>
                     <button onClick={ () => this.deleteFriend(e, i) } className="remove_friend_button">REMOVE FRIEND</button>
                 </div>
             )})

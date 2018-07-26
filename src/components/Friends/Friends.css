@@ -39,12 +39,12 @@
 }
 
 .actual_friends {
-    /* display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; */
+    justify-content: space-around;
     font-size: 26px;
-    height: 35vh;
+    height: 38vh;
     width: 25%;
     margin: 20px;
     background-color: #66FCF1;
@@ -69,7 +69,7 @@
     border: 5px solid #1F2833;
     border-radius: 12px;
     transition: transform 250ms ease-in-out;
-    font-family: 'Orbitron', cursive; 
+    font-family: 'Orbitron', cursive;
 }
 
 .remove_friend_button:hover {

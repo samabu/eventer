@@ -23,7 +23,8 @@ class Event_Viewer extends Component {
             business_info: 
             <div className="one_business_view">
                 ''
-            </div>
+            </div>,
+            index: 0
         }
 
         this.updateMessages = this.updateMessages.bind(this);
@@ -42,6 +43,14 @@ class Event_Viewer extends Component {
         })
     }
 
+    componentWillMount() {
+        document.addEventListener("keydown", this.arrowKey.bind(this));
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("keydown", this.arrowKey.bind(this));
+    }
+
     handleChange = (property, input) => {
         this.setState({ [property]: input })
     }
@@ -57,7 +66,8 @@ class Event_Viewer extends Component {
             params: {
                 event_type: this.state.event_type,
                 preferred_price: this.state.preferred_price,
-                search_input: this.state.search_input
+                search_input: this.state.search_input,
+                zipcode: this.props.user.user.zipcode
             }
         }).then(res => {
             this.setState({ businesses_to_show: res.data })
@@ -96,27 +106,40 @@ class Event_Viewer extends Component {
         }
     }
 
-    displayBusiness = (business) => {
+    arrowKey = (e) => {
+        if (e.key === 'ArrowLeft' && this.state.single_business) {
+            this.displayBusiness(this.state.businesses_to_show, this.state.index > 0? this.state.index - 1 : this.state.index)
+        }
+        else if (e.key === 'ArrowRight' && this.state.single_business) {
+            this.displayBusiness(this.state.businesses_to_show, this.state.index < this.state.businesses_to_show.length - 1? this.state.index + 1 : this.state.index)
+        }
+    }
+
+    displayBusiness = (businesses, i) => {
         this.setState({ business_info: 
         <div className="one_business_view">
             <a onClick={ () => this.setState({ single_business: false }) } href='/#/eventviewer' className="quit_button">X</a>
-            <div>{ business.name }</div>
-            <div>{ "Rating: " + business.rating + " stars" }</div>
-            <div>{ "Price: " + business.price }</div>
-            <div>{ "Address: " + business.location.display_address }</div>
-            <div>{ "Phone: " + business.display_phone }</div>
-            <img src={ business.image_url } alt="none"/>
-            <a className="yelp" href={ business.url }>See Yelp Page</a>
-        </div> , single_business: true })
+            <div>{ businesses[i].name }</div>
+            <div>{ "Rating: " + businesses[i].rating + " stars" }</div>
+            <div>{ "Price: " }{ businesses[i].price ? businesses[i].price : "N/A" }</div>
+            <div>{ "Address: " }{ businesses[i].location.display_address }</div>
+            <div>{ "Phone: " }{ businesses[i].display_phone }</div>
+            <div className="next_button_yelp">
+                <img onClick={ () => this.displayBusiness(businesses, i > 0? i - 1 : i) } className="arrow_buttons" src="https://image.flaticon.com/icons/svg/32/32542.svg" alt=""/>
+                <img src={ businesses[i].image_url? businesses[i].image_url : "http://www.tccia.com/edirectory/oc-content/themes/osclasswizards/images/no_photo.gif" } alt="N/A"/>
+                <img onClick={ () => this.displayBusiness(businesses, i < businesses.length - 1? i + 1 : i) } className="arrow_buttons" src="https://image.flaticon.com/icons/svg/32/32213.svg" alt=""/>
+            </div>
+            <a className="yelp" href={ businesses[i].url }>See Yelp Page</a>
+        </div> , index: i, single_business: true })
     }
 
     mapBusinesses = () => {
         let key = 0;
         let businessesToDisplay = this.state.businesses_to_show.map( (e, i) => {
             return(
-                <div onClick={ () => this.displayBusiness(this.state.businesses_to_show[i]) } className="individual_businesses" key={ key++ }>
-                    { e.name }
-                    <img src={ e.image_url } alt="friend"/>
+                <div onClick={ () => this.displayBusiness(this.state.businesses_to_show, i) } className="individual_businesses" key={ key++ }>
+                    <h2 className="business_name">{ e.name }</h2>
+                    <img className="business_url" src={ e.image_url? e.image_url : "http://www.tccia.com/edirectory/oc-content/themes/osclasswizards/images/no_photo.gif" } alt="N/A"/>
                 </div>
             )})
         return businessesToDisplay;

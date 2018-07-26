@@ -20,8 +20,8 @@ class Friend_Requests extends Component {
     acceptFriend = (friend) => {
         axios.post('/api/accept', friend).then( results => {
             this.setState({ friend_requests: results.data })
+            console.log(results.data, "    ", this.state.friend_requests)
         })
-
     }
 
     rejectFriend = (friend) => {

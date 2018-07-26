@@ -45,7 +45,7 @@
 .search_businesses_button {
     background-color: #1F2833;
     color: #66FCF1;
-    height: 40px;
+    height: 30px;
     width: 150px;
     border-radius: 20px;
     border: 2px solid #66FCF1;
@@ -121,11 +121,23 @@
     align-items: center;
     border-radius: 25px;
     transition: transform 250ms ease-in-out;
+    height: auto;
 }
 
 .individual_businesses:hover {
     transform: scale(1.1);
     transition: transform 250ms ease-in-out;
+}
+
+.business_url {
+    margin: 20px;
+}
+
+.business_name {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    font-size: 24px;
 }
 
 .chat_box {
@@ -192,7 +204,7 @@
 
 .food_or_entertainment {
     text-align: center;
-    width: 120px;
+    width: 145px;
     background-color: #1F2833;
     color: #66FCF1;
     margin: 10px;
@@ -224,4 +236,16 @@
 
 .messages::-webkit-scrollbar-thumb:hover {
     background: grey; 
+}
+
+.next_button_yelp {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.arrow_buttons {
+    height: 30px;
+    width: 30px;
 }
