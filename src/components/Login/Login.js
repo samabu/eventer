@@ -53,7 +53,7 @@ class Login extends Component {
     }
 
     login() {
-        const redirectUri = encodeURIComponent(`http://localhost:3005/auth/callback`);
+        const redirectUri = encodeURIComponent(`${window.origin}/auth/callback`);
         window.location = `https://${process.env.REACT_APP_DOMAIN}/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&scope=openid%20profile%20email&redirect_uri=${redirectUri}&response_type=code`;
     }
 

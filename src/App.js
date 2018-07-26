@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        { window.location.href === 'http://localhost:3000/#/' ? '' : <Nav /> }
+        { window.location.href === `${window.origin}/#/` ? '' : <Nav /> }
         { routes }
       </div>
     );

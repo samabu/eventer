@@ -248,4 +248,10 @@
 .arrow_buttons {
     height: 30px;
     width: 30px;
+    transition: transform 250ms ease-in-out;
+}
+
+.arrow_buttons:hover {
+    transform: scale(2);
+    transition: transform 250ms ease-in-out;
 }

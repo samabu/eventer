@@ -65,11 +65,11 @@ app.get('/auth/callback', async (req, res) => {
     let userExists = await db.find_user([sub]);
     if (userExists[0]) {
       req.session.user = userExists[0];
-      res.redirect('http://localhost:3000/#/dashboard');
+      res.redirect(`${process.env.FRONTEND_DOMAIN}/#/dashboard`);
     } else {
       db.create_user([sub, name, picture]).then(createdUser => {
         req.session.user = createdUser[0];
-        res.redirect('http://localhost:3000/#/dashboard');
+        res.redirect(`${process.env.FRONTEND_DOMAIN}/#/dashboard`);
     });
 
     }
@@ -86,7 +86,7 @@ app.get('/auth/callback', async (req, res) => {
   
   app.get('/api/logout', ( req, res ) => {
     req.session.destroy();
-    res.redirect('http://localhost:3000/#')
+    res.redirect(`${process.env.FRONTEND_DOMAIN}/#`)
   })
   
   // Profile 

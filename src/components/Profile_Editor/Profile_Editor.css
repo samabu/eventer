@@ -25,6 +25,20 @@
     font-family: 'Orbitron', cursive;
 }
 
+.close_profile_editor {
+    background-color: #1F2833;
+    color: #66FCF1;
+    border: 5px solid #1F2833;
+    align-self: flex-end;
+    margin-right: 5vw;
+}
+
+.close_profile_editor:hover {
+    background-color: white;
+    border: 5px solid white;
+    color: #1F2833;
+}
+
 .save_changes_button {
     background-color: #1F2833;
     color: #66FCF1;

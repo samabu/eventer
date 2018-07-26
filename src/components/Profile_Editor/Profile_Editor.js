@@ -42,11 +42,16 @@ class Profile_Editor extends Component {
         axios.delete('/api/delete')
     }
 
+    redirect = () => {
+        window.location.href = `${window.origin}/#/profile`
+    }
+
     render() {
         let { user } = this.props;
         return (
             <div className="profile_editor_body">
                 <div className="profile_editor">
+                    <button onClick={ () => this.redirect() } className="close_profile_editor">X</button>
                     <img src={ user.profile_pic } alt="prof"/><br/>
                     <input className="editor_input" onChange={ (e) => this.handleChange( 'profile_pic', e.target.value ) } type="text" placeholder="New Profile Picture URL" value={ this.state.profile_pic } /><br/>
                     { "Current Username: " + user.username }<br/>
