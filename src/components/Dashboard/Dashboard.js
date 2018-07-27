@@ -61,7 +61,7 @@ class Dashboard extends Component {
       return (
         <div className="dashboard_body">
             <div className="dashboard">
-                <img className="dashboard_profile_pic" src={ user.profile_pic } alt="prof"/><br/>
+                <img className="dashboard_profile_pic" src={ user.profile_pic? user.profile_pic : "https://i.stack.imgur.com/l60Hf.png" } alt="prof"/><br/>
                 <h2>{ user.username }</h2><br/>
             </div>
             <div className="new_event_button_div" onClick={ () => this.throw_confetti() }>
