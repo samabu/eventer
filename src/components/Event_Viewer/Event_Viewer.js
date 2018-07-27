@@ -154,7 +154,7 @@ class Event_Viewer extends Component {
                 <img src={ businesses[i].image_url? businesses[i].image_url : "http://www.tccia.com/edirectory/oc-content/themes/osclasswizards/images/no_photo.gif" } alt="N/A"/>
                 <img onClick={ () => this.displayBusiness(businesses, i < businesses.length - 1? i + 1 : i) } className="arrow_buttons" src="https://image.flaticon.com/icons/svg/32/32213.svg" alt=""/>
             </div>
-            <a className="yelp" href={ businesses[i].url }>See Yelp Page</a>
+            <a target="_blank" className="yelp" href={ businesses[i].url }>See Yelp Page</a>
         </div> , index: i, single_business: true })
     }
 
