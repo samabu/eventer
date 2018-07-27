@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     font-family: 'Orbitron', cursive;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .dashboard {
