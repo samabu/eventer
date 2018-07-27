@@ -125,6 +125,12 @@ class Event_Viewer extends Component {
         this.refs.message.value = '';
     }
 
+    searchKeypress = (e) => {
+        if (e.key === 'Enter') {
+            this.searchBusinesses()
+        }
+    }
+
     keypress = (e) => {
         if (e.key === 'Enter') {
             this.sendMessage();
@@ -199,7 +205,7 @@ class Event_Viewer extends Component {
                             <option value="1,2,3,4">$$$$</option>
                         </select>
                         {"SEARCH TERM: "}
-                        <input className="business_search_input" onChange={ (e) => this.handleChange( 'search_input', e.target.value ) } type="text" placeholder="search by keyword"/>
+                        <input onKeyDown={ this.searchKeypress } className="business_search_input" onChange={ (e) => this.handleChange( 'search_input', e.target.value ) } type="text" placeholder="search by keyword"/>
                         <button className="search_businesses_button" onClick={ () => this.searchBusinesses() }>SEARCH</button>
                     </div>
                     <div className="businesses">
