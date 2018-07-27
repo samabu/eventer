@@ -3,20 +3,11 @@ import io from 'socket.io-client';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { getUserData } from '../../ducks/reducer';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Event_Viewer.css';
 
 const socket = io('http://localhost:3005')
-
-toast.info('Must input a zipcode to return search results', {
-    position: "top-center",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-});
 
 class Event_Viewer extends Component {
     constructor(){
@@ -86,8 +77,8 @@ class Event_Viewer extends Component {
             })
         }
         else {
-            toast.info('🦄 Must input a zipcode to return search results 🦄', {
-                position: "top-center",
+            toast.info('⚠️ MUST INPUT A ZIPCODE TO RETURN SEARCH RESULTS ⚠️', {
+                position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -214,7 +205,7 @@ class Event_Viewer extends Component {
                     </div>
                 </div>
                 <ToastContainer
-                    position="top-center"
+                    position="top-right"
                     autoClose={5000}
                     hideProgressBar={false}
                     newestOnTop={false}
@@ -223,6 +214,7 @@ class Event_Viewer extends Component {
                     pauseOnVisibilityChange
                     draggable
                     pauseOnHover
+                    style={{"width": "550px"}}
                     />
             </div>
         )
