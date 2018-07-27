@@ -1,9 +1,9 @@
 .friends_body {
-    height: 90vh;
-    width: 100vw;
+    min-height: 90vh;
+    width: 100%;
     background-color: #1F2833;
     font-family: 'Orbitron', cursive;
-    overflow: auto;
+    height: auto;
 }
 
 .friend_buttons {

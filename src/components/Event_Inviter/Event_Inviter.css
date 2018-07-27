@@ -13,8 +13,8 @@
 }
 
 .friends_to_invite_list {
-    overflow: auto;
-    height: 65vh;
+    min-height: 65vh;
+    height: auto;
     width: 100%;
     background-color: #1F2833;
     display: flex;

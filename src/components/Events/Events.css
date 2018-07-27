@@ -2,7 +2,8 @@
 
 .events_body {
     background-color: #1F2833;
-    height: 90vh;
+    min-height: 90vh;
+    height: auto;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -10,7 +11,6 @@
     align-items: center;
     font-family: 'Orbitron', cursive;
     color: #66FCF1;
-    overflow: auto;
 }
 
 .single_event {

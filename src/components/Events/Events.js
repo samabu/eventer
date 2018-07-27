@@ -40,6 +40,11 @@ class Events extends Component {
 
     mapEvents = () => {
         let key = 0;
+        if (this.state.eventsToDisplay.length === 0) {
+            return(
+                <h1 style={{"margin-top": "32vh"}}>NO EVENTS TO SHOW</h1>
+            )
+        } 
         let eventsToShow = this.state.eventsToDisplay.map( (e, i) => {
             return (
                 <div className="single_event" key={key++}>
