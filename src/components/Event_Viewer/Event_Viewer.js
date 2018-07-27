@@ -3,9 +3,20 @@ import io from 'socket.io-client';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { getUserData } from '../../ducks/reducer';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Event_Viewer.css';
 
 const socket = io('http://localhost:3005')
+
+toast.info('Must input a zipcode to return search results', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+});
 
 class Event_Viewer extends Component {
     constructor(){
@@ -62,16 +73,28 @@ class Event_Viewer extends Component {
     }
 
     searchBusinesses = () => {
-        axios.get('/api/businesses', {
-            params: {
-                event_type: this.state.event_type,
-                preferred_price: this.state.preferred_price,
-                search_input: this.state.search_input,
-                zipcode: this.props.user.user.zipcode
-            }
-        }).then(res => {
-            this.setState({ businesses_to_show: res.data })
-        })
+        if (this.props.user.user.zipcode) {
+            axios.get('/api/businesses', {
+                params: {
+                    event_type: this.state.event_type,
+                    preferred_price: this.state.preferred_price,
+                    search_input: this.state.search_input,
+                    zipcode: this.props.user.user.zipcode
+                }
+            }).then(res => {
+                this.setState({ businesses_to_show: res.data })
+            })
+        }
+        else {
+            toast.info('🦄 Must input a zipcode to return search results 🦄', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        }
         
     }
 
@@ -146,6 +169,7 @@ class Event_Viewer extends Component {
     }
 
     render() {
+        
 
         const messages = this.state.messages.map((e,i) => {
             const styles = e.username === this.props.user.user.username ? {alignSelf: "flex-end", backgroundColor: "#1F2833", color: "#C5C6C7"} : {alignSelf: "flex-start", backgroundColor: "#C5C6C7", color: "#1F2833"}
@@ -189,6 +213,17 @@ class Event_Viewer extends Component {
                         <button className="send_message" onClick={this.sendMessage}>Send</button>
                     </div>
                 </div>
+                <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnVisibilityChange
+                    draggable
+                    pauseOnHover
+                    />
             </div>
         )
     }

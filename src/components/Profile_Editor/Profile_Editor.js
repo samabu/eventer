@@ -52,7 +52,7 @@ class Profile_Editor extends Component {
             <div className="profile_editor_body">
                 <div className="profile_editor">
                     <button onClick={ () => this.redirect() } className="close_profile_editor">X</button>
-                    <img src={ user.profile_pic } alt="prof"/><br/>
+                    <img src={ user.profile_pic? user.profile_pic : "https://i.stack.imgur.com/l60Hf.png" } alt="prof"/><br/>
                     <input className="editor_input" onChange={ (e) => this.handleChange( 'profile_pic', e.target.value ) } type="text" placeholder="New Profile Picture URL" value={ this.state.profile_pic } /><br/>
                     { "Current Username: " + user.username }<br/>
                     <input className="editor_input" onChange={ (e) => this.handleChange( 'username', e.target.value ) } type="text" placeholder="New Username" value={ this.state.username } /><br/>

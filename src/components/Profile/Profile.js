@@ -19,7 +19,7 @@ class Profile extends Component {
             <div className="profile_body">
                 <div className="profile_body_div">
                     YOUR PROFILE:<br/>
-                    <img src={ user.profile_pic } alt="prof"/><br/>
+                    <img src={ user.profile_pic? user.profile_pic : "https://i.stack.imgur.com/l60Hf.png" } alt="prof"/><br/>
                     {"Username: "}
                     { user.username }<br/>
                     {"Email: "}
