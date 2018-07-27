@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Event_Viewer.css';
 
-const socket = io()
+const socket = io(process.env.SOCKET)
 
 class Event_Viewer extends Component {
     constructor(){
@@ -61,6 +61,17 @@ class Event_Viewer extends Component {
       this.setState({
         [property]: value
       });
+    }
+
+    scrollToBottom() {
+        const scrollHeight = this.messageList.scrollHeight;
+        const height = this.messageList.clientHeight;
+        const maxScrollTop = scrollHeight - height;
+        this.messageList.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
+    }
+    
+    componentDidUpdate() {
+        this.scrollToBottom()
     }
 
     searchBusinesses = () => {
@@ -196,7 +207,7 @@ class Event_Viewer extends Component {
                     </div>
                 </div>
                 <div className="chat_box">
-                    <div className="messages">
+                    <div ref={(div) => { this.messageList = div }} className="messages">
                         {messages}
                     </div>
                     <div className="input">
