@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Event_Viewer.css';
 
-const socket = io('http://localhost:3005')
+const socket = io()
 
 class Event_Viewer extends Component {
     constructor(){
