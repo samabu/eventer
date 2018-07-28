@@ -51,7 +51,7 @@ module.exports = {
             searchRequest = {
                 location: req.query.zipcode,
                 limit: 50,
-                term: req.query.search_input + '' + req.query.event_type
+                term: req.query.search_input + ' ' + req.query.event_type
             };
         }
         else if (req.query.event_type !== 'all' && req.query.preferred_price !== '4' && req.query.search_input !== '') {
@@ -59,7 +59,7 @@ module.exports = {
                 location: req.query.zipcode,
                 limit: 50,
                 price: req.query.preferred_price,
-                term: req.query.search_input + '' + req.query.event_type
+                term: req.query.search_input + ' ' + req.query.event_type
             };
         }
             
