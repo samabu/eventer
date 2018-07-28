@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { getUserData } from '../../ducks/reducer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Friend_Adder.css';
 
 class Friend_Adder extends Component {
@@ -33,6 +35,14 @@ class Friend_Adder extends Component {
 
     addFriend = (friend, i) => {
         axios.post('/api/addfriend', friend)
+        .then(toast.success('FRIEND REQUEST SENT', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+        }))
         let newState = this.state.friendsToShow;
         newState.splice(i, 1);
         this.setState({ friendsToShow: newState });
@@ -66,6 +76,18 @@ class Friend_Adder extends Component {
                 <div className="map_friends_to_show">
                     { this.mapFriendsToShow() }
                 </div>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnVisibilityChange
+                    draggable
+                    pauseOnHover
+                    style={{"width": "550px"}}
+                />
             </div>
         )
     }
